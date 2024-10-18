@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teleprompter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="center">
+        <h1>Upload a text file!</h1>
+        <input id="FILE" accept=".txt" type="file">
+    </div>
+    <div style="margin: 0%; margin-top: 10px; width: 100vw; display: flex; justify-content: center;">
+        <label for="TypeTele">Mode</label>
+        <select name="TypeTele" id="TypeTele">
+            <option value="time">Time</option>
+            <option value="manual">manual</option>
+        </select>
+        <label style="margin-left: 20px;" for="TeleName">Name</label>
+        <input id="TeleName" type="text">
+    </div>
+
+    <div id="SettingHolder" class="SettingHolder">
+        <p>Uplaod a text file to begin.</p>
+    </div>
+
+    <div style="margin: 0%; margin-top: 10px; width: 100vw; display: flex; justify-content: center;">
+        <button onclick="ConvertTextToTele()"><p>Download</p></button>
+    </div>
+
+    <script src="Scripts/convert.js"></script>
+</body>
+</html>

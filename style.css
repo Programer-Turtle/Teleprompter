@@ -8,6 +8,7 @@ body
 h1{
     font-family: Helvetica;
     font-size: 60px;
+    transition: .9s;
 }
 
 p{
@@ -29,6 +30,10 @@ p{
     justify-content: center;
 }
 
+.flex{
+    display: flex;
+}
+
 input[type=""]
 
 input[type="file"]{
@@ -46,4 +51,44 @@ input[type="file"]{
     border-style:groove;
     border-width: 5px;
     border-color: grey;
+}
+
+.SettingHolder p{
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+
+.SecondInput{
+    margin-right: 10px;
+    margin-left: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    padding: 0%;
+    width: 60px;
+    height: 40px;
+    text-align: center;
+}
+
+label{
+    font-family: Helvetica;
+    font-size: 20px;
+}
+
+select{
+    font-family: Helvetica;
+    font-size: 20px; 
+}
+
+option{
+    font-family: Helvetica;
+    font-size: 20px;
+}
+
+button{
+    margin: 0%;
+    cursor: pointer;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-radius: 20px;
+    background-color: rgb(187, 177, 177);
 }
