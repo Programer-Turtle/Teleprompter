@@ -92,3 +92,10 @@ button{
     border-radius: 20px;
     background-color: rgb(187, 177, 177);
 }
+
+textarea{
+    width: 80%;
+    height: 500px;
+    font-size: 25px;
+    font-family: Helvetica;
+}

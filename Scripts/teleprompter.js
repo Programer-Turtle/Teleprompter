@@ -4,8 +4,25 @@ let TextLines = []
 let WaitTimes = []
 let CurrentSlide = 0
 let type
+let ModeIn = document.getElementById("InMode")
+let TextArea = document.getElementById("TextIn")
+let FileArea = document.getElementById("FileIn")
+let TextForUse = document.getElementById("TextForUse")
 
-function CheckFile() {
+ModeIn.addEventListener("input",ShowMenu)
+
+function ShowMenu(){
+    if(ModeIn.value == "text"){
+        TextArea.style.display = "flex"
+        FileArea.style.display = "none"
+    }
+    else if(ModeIn.value = "file"){
+        FileArea.style.display = "flex"
+        TextArea.style.display = "none"
+    }
+}
+
+async function CheckFile() {
     return new Promise((resolve, reject) => {
         let file = fileInput.files[0];
         if (file) {
@@ -73,15 +90,25 @@ async function DeterminTeleprompter() {
     }
 }
 
+async function SplitLine(){
+    let Text = TextForUse.value
+    TextLines = Text.split("\n")
+}
+
 async function RunTeleprompter() {
     body.style.overflow = "hidden"
     document.body.removeChild(document.getElementById("UI"))
-    await SetUpData()
+    if(ModeIn.value == "file"){
+        await SetUpData()
+    }
+    else if(ModeIn.value == "text"){
+        await SplitLine()
+    }
     await CreateTextLines()
     await DeterminTeleprompter()
     body.addEventListener('keydown', event => {
         console.log(event.key)
-        if (event.key === ' ') {
+        if (event.key === ' ' || event.key == "ArrowRight") {
             event.preventDefault();
             CurrentSlide++
             DeterminTeleprompter()
@@ -95,3 +122,5 @@ async function RunTeleprompter() {
         }
     })
 }
+
+ShowMenu()
